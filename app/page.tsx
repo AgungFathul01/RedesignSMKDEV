@@ -696,7 +696,7 @@ export default function Home() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                      <Button className="rounded-full px-6 py-2 shadow-lg transition-transform hover:scale-105">
+                      <Button className="rounded-full px-6 py-2 shadow-lg transition-transform hover:scale-105 text-white">
                         See Platform Demo
                       </Button>
                       <Button variant="outline" className="rounded-full px-6 py-2 transition-transform hover:scale-105">
