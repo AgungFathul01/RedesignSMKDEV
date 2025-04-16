@@ -80,6 +80,10 @@ const config = {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
         "slide-left": {
           "0%": { transform: "translateX(100%)", opacity: 0 },
           "100%": { transform: "translateX(0)", opacity: 1 },
@@ -102,7 +106,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 1s ease-out",
         "slide-up": "slide-up 0.5s ease-out",
-        marquee: "marquee 15s linear infinite",
+        marquee: "marquee 15s linear infinite",'marquee-reverse': 'marquee-reverse 30s linear infinite',
         "slide-left": "slide-left 0.5s ease-out forwards",
         float: "float 3s ease-in-out infinite",
         "pulse-slow": "pulse-slow 3s ease-in-out infinite",
