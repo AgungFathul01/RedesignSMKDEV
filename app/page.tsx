@@ -1,11 +1,7 @@
-"use client"
-
-import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import {
   ArrowRight,
-  ArrowLeft,
   CheckCircle,
   ChevronDown,
   ChevronRight,
@@ -34,44 +30,44 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 const logos = [
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png",
-    alt: "Google logo",
-    width: 160,
-    height: 60,
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png',
+    alt: 'Google logo',
+    width: 128,
+    height: 48,
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1200px-Microsoft_logo.svg.png",
-    alt: "Microsoft logo",
-    width: 160,
-    height: 60,
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1200px-Microsoft_logo.svg.png',
+    alt: 'Microsoft logo',
+    width: 128,
+    height: 48,
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1667px-Apple_logo_black.svg.png",
-    alt: "Apple logo",
-    width: 60,
-    height: 60,
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1667px-Apple_logo_black.svg.png',
+    alt: 'Apple logo',
+    width: 48,
+    height: 48,
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1200px-IBM_logo.svg.png",
-    alt: "IBM logo",
-    width: 160,
-    height: 60,
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1200px-IBM_logo.svg.png',
+    alt: 'IBM logo',
+    width: 128,
+    height: 48,
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png",
-    alt: "Amazon logo",
-    width: 160,
-    height: 60,
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png',
+    alt: 'Amazon logo',
+    width: 128,
+    height: 48,
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1200px-Netflix_2015_logo.svg.png",
-    alt: "Netflix logo",
-    width: 160,
-    height: 60,
+    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1200px-Netflix_2015_logo.svg.png',
+    alt: 'Netflix logo',
+    width: 128,
+    height: 48,
   },
-]
+];
 
-const testimonials = [
+onst testimonials = [
   {
     name: "Sarah Johnson",
     role: "CTO, TechStart",
@@ -117,8 +113,6 @@ export default function Home() {
     setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
   }
 
-  // Update the testimonials section to show two cards at a time on desktop and one on mobile
-  // First, add a function to get the next testimonial index in a circular manner
   const getNextTestimonialIndex = (current, direction, total) => {
     if (direction === "next") {
       return (current + 1) % total
@@ -126,6 +120,7 @@ export default function Home() {
     return current === 0 ? total - 1 : current - 1
   }
 
+export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* NAVBAR */}
@@ -374,8 +369,8 @@ export default function Home() {
               Login
             </Link>
             <Button className="rounded-full shadow-md transition-transform hover:scale-105 text-white">
-              Hire Talent Now
-            </Button>
+  Hire Talent Now
+</Button>
 
             {/* Mobile Menu */}
             <Sheet>
@@ -385,10 +380,7 @@ export default function Home() {
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent
-                side="right"
-                className="w-[300px] sm:w-[400px] bg-white text-black dark:bg-gray-900 dark:text-white"
-              >
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white text-black dark:bg-gray-900 dark:text-white">
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between border-b pb-4">
                     <Link href="/" className="flex items-center space-x-2">
@@ -605,67 +597,57 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
+              
             </div>
           </div>
         </section>
 
         {/* SOCIAL PROOF */}
         <section className="py-10 bg-white overflow-hidden w-full">
-          <div className="flex flex-col items-center justify-center space-y-8 text-center">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-              Trusted by Leading Companies
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Why Top Brands Rely on SMK.DEV</h2>
-            <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Our proven track record and tailored approach make us the go-to choice for companies hiring top junior
-              tech talent.
-            </p>
+  <div className="flex flex-col items-center justify-center space-y-8 text-center">
+    <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+      Trusted by Leading Companies
+    </div>
+    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      Why Top Brands Rely on SMK.DEV
+    </h2>
+    <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+      Our proven track record and tailored approach make us the go-to choice for companies hiring top junior tech talent.
+    </p>
 
-            {/* Infinite Scrolling Logos - Row 1 */}
-            <div className="w-full overflow-hidden relative">
-              <div className="flex space-x-16 animate-marquee whitespace-nowrap">
-                {logos.map((logo, index) => (
-                  <div
-                    key={`logo1-${index}`}
-                    className="flex h-16 w-40 shrink-0 items-center justify-center hover:scale-110 transition-transform duration-300"
-                  >
-                    <img src={logo.src || "/placeholder.svg"} alt={logo.alt} width={logo.width} height={logo.height} />
-                  </div>
-                ))}
-                {logos.map((logo, index) => (
-                  <div
-                    key={`logo1-dup-${index}`}
-                    className="flex h-16 w-40 shrink-0 items-center justify-center hover:scale-110 transition-transform duration-300"
-                  >
-                    <img src={logo.src || "/placeholder.svg"} alt={logo.alt} width={logo.width} height={logo.height} />
-                  </div>
-                ))}
-              </div>
+    {/* 2 Row Marquee */}
+    <div className="w-full space-y-6">
+      {/* Row 1 */}
+      <div className="relative w-full overflow-hidden">
+        <div className="flex animate-marquee space-x-16 py-4 whitespace-nowrap">
+          {[...logos, ...logos].map((logo, index) => (
+            <div
+              key={`row1-${index}`}
+              className="flex h-12 w-32 shrink-0 items-center justify-center hover:scale-110 transition-transform duration-300"
+            >
+              <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
             </div>
+          ))}
+        </div>
+      </div>
 
-            {/* Infinite Scrolling Logos - Row 2 (Reverse Direction) */}
-            <div className="w-full overflow-hidden relative">
-              <div className="flex space-x-16 animate-marquee-reverse whitespace-nowrap">
-                {logos.map((logo, index) => (
-                  <div
-                    key={`logo2-${index}`}
-                    className="flex h-16 w-40 shrink-0 items-center justify-center hover:scale-110 transition-transform duration-300"
-                  >
-                    <img src={logo.src || "/placeholder.svg"} alt={logo.alt} width={logo.width} height={logo.height} />
-                  </div>
-                ))}
-                {logos.map((logo, index) => (
-                  <div
-                    key={`logo2-dup-${index}`}
-                    className="flex h-16 w-40 shrink-0 items-center justify-center hover:scale-110 transition-transform duration-300"
-                  >
-                    <img src={logo.src || "/placeholder.svg"} alt={logo.alt} width={logo.width} height={logo.height} />
-                  </div>
-                ))}
-              </div>
+      {/* Row 2 */}
+      <div className="relative w-full overflow-hidden">
+        <div className="flex animate-marquee-reverse space-x-16 py-4 whitespace-nowrap">
+          {[...logos, ...logos].map((logo, index) => (
+            <div
+              key={`row2-${index}`}
+              className="flex h-12 w-32 shrink-0 items-center justify-center hover:scale-110 transition-transform duration-300"
+            >
+              <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
             </div>
-          </div>
-        </section>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         {/* KEY FEATURES */}
         <section className="py-24 bg-gradient-to-b from-white to-sky-50">
