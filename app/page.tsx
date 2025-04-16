@@ -100,7 +100,7 @@ const testimonials = [
     stars: 5,
     hired: "2 Mobile Developers",
   },
-];
+]
 
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -119,8 +119,6 @@ export default function Home() {
     }
     return current === 0 ? total - 1 : current - 1
   }
-
-export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* NAVBAR */}
