@@ -67,58 +67,7 @@ const logos = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "CTO, TechStart",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop",
-    quote: "We hired two junior developers through SMK.DEV and they've been incredible additions to our team.",
-    stars: 5,
-    hired: "2 React Developers",
-  },
-  {
-    name: "Michael Chen",
-    role: "Engineering Manager, DataFlow",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop",
-    quote: "The quality of junior talent from SMK.DEV is exceptional. Their vetting process is thorough.",
-    stars: 5,
-    hired: "3 Backend Developers",
-  },
-  {
-    name: "Lisa Rodriguez",
-    role: "Product Lead, AppWorks",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=120&auto=format&fit=crop",
-    quote: "SMK.DEV has transformed how we think about junior hiring. Their platform is excellent.",
-    stars: 4,
-    hired: "1 Full-Stack Developer",
-  },
-  {
-    name: "David Wilson",
-    role: "CEO, TechInnovate",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=120&auto=format&fit=crop",
-    quote: "As a startup, finding affordable talent was challenging until we found SMK.DEV.",
-    stars: 5,
-    hired: "2 Mobile Developers",
-  },
-]
-
 export default function Home() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
-  }
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
-  }
-
-  const getNextTestimonialIndex = (current, direction, total) => {
-    if (direction === "next") {
-      return (current + 1) % total
-    }
-    return current === 0 ? total - 1 : current - 1
-  }
   return (
     <div className="flex min-h-screen flex-col">
       {/* NAVBAR */}
@@ -1291,10 +1240,9 @@ export default function Home() {
         </section>
 
         {/* TESTIMONIALS */}
-
         <section className="py-24 bg-gradient-to-b from-sky-50 to-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-
+          
           <div className="px-4 md:px-6 relative">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <div className="space-y-2">
@@ -1305,133 +1253,164 @@ export default function Home() {
                 </p>
               </div>
             </div>
-
-            <div className="mx-auto max-w-5xl">
+            
+            <div className="mx-auto max-w-6xl">
               <div className="relative">
-                {/* Testimonial Cards Container */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* First Card - Always visible */}
-                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 h-full">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <Image
-                        src={testimonials[currentTestimonial].image || "/placeholder.svg"}
-                        alt={testimonials[currentTestimonial].name}
-                        width={60}
-                        height={60}
-                        className="rounded-full"
-                      />
-                      <div>
-                        <h3 className="text-lg font-bold">{testimonials[currentTestimonial].name}</h3>
-                        <p className="text-sm text-gray-500">{testimonials[currentTestimonial].role}</p>
+                <div className="testimonial-slider flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 -mx-4 px-4">
+                  <div className="testimonial-slide min-w-[85%] md:min-w-[40%] lg:min-w-[30%] snap-start mr-6 animate-slide-left">
+                    <div className="h-full flex flex-col bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                      <div className="flex items-center space-x-4 mb-4">
+                        <Image
+                          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop"
+                          alt="Client"
+                          width={60}
+                          height={60}
+                          className="rounded-full"
+                        />
+                        <div>
+                          <h3 className="text-lg font-bold">Sarah Johnson</h3>
+                          <p className="text-sm text-gray-500">CTO, TechStart</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex mb-4">
-                      {Array(5)
-                        .fill(0)
-                        .map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`h-5 w-5 ${
-                              i < testimonials[currentTestimonial].stars
-                                ? "fill-amber-500 text-amber-500"
-                                : "text-amber-500"
-                            }`}
-                          />
-                        ))}
-                    </div>
-                    <p className="text-gray-600 text-lg mb-6">&ldquo;{testimonials[currentTestimonial].quote}&rdquo;</p>
-                    <div className="pt-4 border-t border-gray-100">
-                      <p className="text-sm text-primary font-medium">
-                        Hired: {testimonials[currentTestimonial].hired}
+                      <div className="flex mb-4">
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                      </div>
+                      <p className="text-gray-600 flex-grow">
+                        "We hired two junior developers through SMK.DEV and they've been incredible additions to our team.
+                        They came in ready to contribute and have grown rapidly with our guidance."
                       </p>
-                    </div>
-                  </div>
-
-                  {/* Second Card - Only visible on md screens and up */}
-                  <div className="hidden md:block bg-white rounded-2xl shadow-lg border border-gray-100 p-6 h-full">
-                    <div className="flex items-center space-x-4 mb-4">
-                      <Image
-                        src={
-                          testimonials[getNextTestimonialIndex(currentTestimonial, "next", testimonials.length)]
-                            .image || "/placeholder.svg"
-                        }
-                        alt={
-                          testimonials[getNextTestimonialIndex(currentTestimonial, "next", testimonials.length)].name
-                        }
-                        width={60}
-                        height={60}
-                        className="rounded-full"
-                      />
-                      <div>
-                        <h3 className="text-lg font-bold">
-                          {testimonials[getNextTestimonialIndex(currentTestimonial, "next", testimonials.length)].name}
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          {testimonials[getNextTestimonialIndex(currentTestimonial, "next", testimonials.length)].role}
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <p className="text-sm text-primary font-medium">
+                          Hired: 2 React Developers
                         </p>
                       </div>
                     </div>
-                    <div className="flex mb-4">
-                      {Array(5)
-                        .fill(0)
-                        .map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`h-5 w-5 ${
-                              i <
-                              testimonials[getNextTestimonialIndex(currentTestimonial, "next", testimonials.length)]
-                                .stars
-                                ? "fill-amber-500 text-amber-500"
-                                : "text-amber-500"
-                            }`}
-                          />
-                        ))}
-                    </div>
-                    <p className="text-gray-600 text-lg mb-6">
-                      &ldquo;
-                      {testimonials[getNextTestimonialIndex(currentTestimonial, "next", testimonials.length)].quote}
-                      &rdquo;
-                    </p>
-                    <div className="pt-4 border-t border-gray-100">
-                      <p className="text-sm text-primary font-medium">
-                        Hired:{" "}
-                        {testimonials[getNextTestimonialIndex(currentTestimonial, "next", testimonials.length)].hired}
+                  </div>
+                  
+                  <div className="testimonial-slide min-w-[85%] md:min-w-[40%] lg:min-w-[30%] snap-start mr-6 animate-slide-left animation-delay-300">
+                    <div className="h-full flex flex-col bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                      <div className="flex items-center space-x-4 mb-4">
+                        <Image
+                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop"
+                          alt="Client"
+                          width={60}
+                          height={60}
+                          className="rounded-full"
+                        />
+                        <div>
+                          <h3 className="text-lg font-bold">Michael Chen</h3>
+                          <p className="text-sm text-gray-500">Engineering Manager, DataFlow</p>
+                        </div>
+                      </div>
+                      <div className="flex mb-4">
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                      </div>
+                      <p className="text-gray-600 flex-grow">
+                        "The quality of junior talent from SMK.DEV is exceptional. Their vetting process ensures we only
+                        interview candidates who are truly ready to contribute to our projects."
                       </p>
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <p className="text-sm text-primary font-medium">
+                          Hired: 3 Backend Developers
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="testimonial-slide min-w-[85%] md:min-w-[40%] lg:min-w-[30%] snap-start mr-6 animate-slide-left animation-delay-600">
+                    <div className="h-full flex flex-col bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                      <div className="flex items-center space-x-4 mb-4">
+                        <Image
+                          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=120&auto=format&fit=crop"
+                          alt="Client"
+                          width={60}
+                          height={60}
+                          className="rounded-full"
+                        />
+                        <div>
+                          <h3 className="text-lg font-bold">Lisa Rodriguez</h3>
+                          <p className="text-sm text-gray-500">Product Lead, AppWorks</p>
+                        </div>
+                      </div>
+                      <div className="flex mb-4">
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 text-amber-500" />
+                      </div>
+                      <p className="text-gray-600 flex-grow">
+                        "SMK.DEV has transformed how we think about junior hiring. Their platform made it easy to find the
+                        right talent quickly, and the developers we hired have exceeded our expectations."
+                      </p>
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <p className="text-sm text-primary font-medium">
+                          Hired: 1 Full-Stack Developer
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="testimonial-slide min-w-[85%] md:min-w-[40%] lg:min-w-[30%] snap-start animate-slide-left animation-delay-900">
+                    <div className="h-full flex flex-col bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                      <div className="flex items-center space-x-4 mb-4">
+                        <Image
+                          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=120&auto=format&fit=crop"
+                          alt="Client"
+                          width={60}
+                          height={60}
+                          className="rounded-full"
+                        />
+                        <div>
+                          <h3 className="text-lg font-bold">David Wilson</h3>
+                          <p className="text-sm text-gray-500">CEO, TechInnovate</p>
+                        </div>
+                      </div>
+                      <div className="flex mb-4">
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                        <Star className="h-5 w-5 fill-amber-500 text-amber-500" />
+                      </div>
+                      <p className="text-gray-600 flex-grow">
+                        "As a startup, finding affordable talent that can still deliver quality work was challenging until we found SMK.DEV. Their junior developers have the perfect balance of skills and eagerness to learn."
+                      </p>
+                      <div className="mt-4 pt-4 border-t border-gray-100">
+                        <p className="text-sm text-primary font-medium">
+                          Hired: 2 Mobile Developers
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                {/* Navigation Arrows */}
-                <button
-                  onClick={prevTestimonial}
-                  className="absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
-                  aria-label="Previous testimonial"
-                >
-                  <ArrowLeft className="h-5 w-5 text-gray-600" />
-                </button>
-                <button
-                  onClick={nextTestimonial}
-                  className="absolute -right-4 md:-right-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
-                  aria-label="Next testimonial"
-                >
-                  <ArrowRight className="h-5 w-5 text-gray-600" />
-                </button>
-              </div>
-
-              <div className="flex justify-center mt-8 space-x-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={`indicator-${index}`}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      index === currentTestimonial ||
-                      index === getNextTestimonialIndex(currentTestimonial, "next", testimonials.length)
-                        ? "bg-primary"
-                        : "bg-gray-300"
-                    }`}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  />
-                ))}
+                
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 hidden md:block">
+                  <button className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                    <ChevronRight className="h-6 w-6 transform rotate-180" />
+                  </button>
+                </div>
+                
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden md:block">
+                  <button className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                </div>
+                
+                <div className="flex justify-center space-x-2 mt-6">
+                  <div className="w-2 h-2 rounded-full bg-primary"></div>
+                  <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+                  <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+                  <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+                </div>
               </div>
             </div>
           </div>
