@@ -327,7 +327,7 @@ export default function Home() {
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white text-black dark:bg-gray-900 dark:text-white">
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between border-b pb-4">
                     <Link href="/" className="flex items-center space-x-2">
