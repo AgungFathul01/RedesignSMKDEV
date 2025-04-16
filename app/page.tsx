@@ -562,30 +562,39 @@ export default function Home() {
       Our proven track record and tailored approach make us the go-to choice for companies hiring top junior tech talent.
     </p>
 
-    {/* Carousel 2 Rows */}
+    {/* 2 Row Marquee */}
     <div className="w-full space-y-6">
-      {[0, 1].map((rowIndex) => (
-        <div
-          key={rowIndex}
-          className={`w-full overflow-hidden relative bg-white ${
-            rowIndex === 1 ? 'animate-marquee-slow' : 'animate-marquee'
-          }`}
-        >
-          <div className="flex space-x-16 py-4 whitespace-nowrap">
-            {[...logos, ...logos].map((logo, index) => (
-              <div
-                key={`${rowIndex}-${index}`}
-                className="flex h-12 w-32 shrink-0 items-center justify-center hover:scale-110 transition-transform duration-300"
-              >
-                <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
-              </div>
-            ))}
-          </div>
+      {/* Row 1 */}
+      <div className="relative w-full overflow-hidden">
+        <div className="flex animate-marquee space-x-16 py-4 whitespace-nowrap">
+          {[...logos, ...logos].map((logo, index) => (
+            <div
+              key={`row1-${index}`}
+              className="flex h-12 w-32 shrink-0 items-center justify-center hover:scale-110 transition-transform duration-300"
+            >
+              <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
+
+      {/* Row 2 */}
+      <div className="relative w-full overflow-hidden">
+        <div className="flex animate-marquee-reverse space-x-16 py-4 whitespace-nowrap">
+          {[...logos, ...logos].map((logo, index) => (
+            <div
+              key={`row2-${index}`}
+              className="flex h-12 w-32 shrink-0 items-center justify-center hover:scale-110 transition-transform duration-300"
+            >
+              <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
 
 
         {/* KEY FEATURES */}
