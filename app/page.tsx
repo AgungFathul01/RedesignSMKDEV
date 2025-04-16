@@ -596,7 +596,6 @@ export default function Home() {
 </section>
 
 
-
         {/* KEY FEATURES */}
         <section className="py-24 bg-gradient-to-b from-white to-sky-50">
           <div className="container px-4 md:px-6">
@@ -706,7 +705,7 @@ export default function Home() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                      <Button className="rounded-full px-6 py-2 shadow-lg transition-transform hover:scale-105 text-white">
+                      <Button className="rounded-full px-6 py-2 shadow-lg transition-transform hover:scale-105">
                         See Platform Demo
                       </Button>
                       <Button variant="outline" className="rounded-full px-6 py-2 transition-transform hover:scale-105">
