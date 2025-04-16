@@ -67,7 +67,7 @@ const logos = [
   },
 ];
 
-onst testimonials = [
+Const testimonials = [
   {
     name: "Sarah Johnson",
     role: "CTO, TechStart",
