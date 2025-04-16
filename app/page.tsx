@@ -67,7 +67,7 @@ const logos = [
   },
 ];
 
-Const testimonials = [
+const testimonials = [
   {
     name: "Sarah Johnson",
     role: "CTO, TechStart",
@@ -100,7 +100,7 @@ Const testimonials = [
     stars: 5,
     hired: "2 Mobile Developers",
   },
-]
+];
 
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
