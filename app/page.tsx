@@ -550,7 +550,7 @@ export default function Home() {
         </section>
 
         {/* SOCIAL PROOF */}
-        <section className="py-16 bg-white overflow-hidden w-full">
+        <section className="py-10 bg-white overflow-hidden w-full">
   <div className="flex flex-col items-center justify-center space-y-8 text-center">
     <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
       Trusted by Leading Companies
