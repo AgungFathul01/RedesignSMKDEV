@@ -137,15 +137,6 @@ export default function Home() {
                     </DropdownMenuItem>
                   </div>
 
-                  <DropdownMenuItem className="rounded-md hover:bg-gray-100 focus:bg-gray-100">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
-                        <Search className="h-4 w-4 text-gray-600" />
-                      </div>
-                      <span>FAQ</span>
-                    </div>
-                  </DropdownMenuItem>
-
                   <DropdownMenuSeparator className="my-2" />
                   <DropdownMenuLabel className="text-gray-600 font-bold">Case Study</DropdownMenuLabel>
                   <DropdownMenuItem className="rounded-md hover:bg-gray-100 focus:bg-gray-100">
